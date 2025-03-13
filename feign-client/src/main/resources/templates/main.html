@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <title>MAIN</title>
+</head>
+<body>
+    <h2>기상청 API 조회</h2>
+    <p>예보 날짜<span id="base_date" th:text="${weather.response.body.items.item[0].baseDate}"></span> </p>
+    <p>예보 시간 <span id="base_time" th:text="${weather.response.body.items.item[0].baseTime}"></span></p>
+    <p>자료 구분 코드 <span id="category" th:text="${weather.response.body.items.item[0].category}"></span></p>
+</body>
+</html>

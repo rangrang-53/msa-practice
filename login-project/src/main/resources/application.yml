@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: login-project
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/java_practice?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1234
+server:
+  port: 1111
+
+mybatis:
+  type-aliases-package: com.example.loginproject.model
+  mapper-locations: classpath:mappers/*.xml
+
+jwt:
+  issuer: jr0503@naver.com
+  secret_key: 55DQ7XtZjKEuftetbQMtw0geU9SS1rR/fbrPOAqIQ2UUPJ+crjXRoLppDtreyvim53v3U6+hTLcbunHlxlNGlA==
