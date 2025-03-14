@@ -2,10 +2,18 @@ spring:
   application:
     name: login-project
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/java_practice?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
-    username: root
-    password: 1234
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/java_practice?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+      username: root
+      password: 1234
+
+    slave:
+      url: jdbc:mysql://localhost:3308/java_practice?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc
+      username: root
+      password: 1234
+
 server:
   port: 1234
 
