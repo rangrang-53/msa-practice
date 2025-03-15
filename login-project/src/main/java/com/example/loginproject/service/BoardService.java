@@ -22,6 +22,7 @@ public class BoardService {
     private final BoardMapper boardMapper;
     private final FileService fileService;
 
+    @Transactional(readOnly = true)
     public List<Article> getArticles(int page, int size) {
         int offset = (page - 1) * size;
 
@@ -54,6 +55,7 @@ public class BoardService {
         return boardMapper.getArticleCnt();
     }
 
+    @Transactional(readOnly = true)
     public Article getBoardDetail(long id) {
         return boardMapper.getArticleById(id);
     }

@@ -4,13 +4,13 @@ spring:
   datasource:
     master:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/java_practice?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+      jdbc-url: jdbc:mysql://localhost:3306/java_practice?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
       username: root
       password: 1234
 
     slave:
-      url: jdbc:mysql://localhost:3308/java_practice?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
-      driver-class-name: com.mysql.cj.jdbc
+      jdbc-url: jdbc:mysql://localhost:3308/java_practice?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: 1234
 
