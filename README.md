@@ -41,7 +41,7 @@
    - 신규 회원은 기본적으로 `ROLE_USER` 권한을 부여
    - 로그인 시, `MemberApiController`에서 사용자를 인증하고 JWT 토큰(액세스 및 리프레시 토큰) 발급
   
-     ```
+     ```java
      
       @PostMapping("/login")
         public SignInResponseDTO signIn (@RequestBody SignInRequestDTO signInRequestDTO,
@@ -81,7 +81,7 @@
 2. **JWT 토큰 생성 및 검증**
    - `TokenProvider` 클래스는 JWT 토큰의 생성, 검증 및 정보 추출 담당
      
-     ```
+     ```java
 
       public int validToken(String token) {
             try {
@@ -101,7 +101,8 @@
      
    - 클라이언트는 이후 모든 요청 시 HTTP 헤더의 `Authorization: Bearer <token>` 형식으로 토큰 전송
      
-     ```
+     ```java
+     
        private final static String HEADER_AUTHORIZATION = "Authorization";
        private final static String TOKEN_PREFIX = "Bearer ";
           private String resolveToken(HttpServletRequest request) {
@@ -131,7 +132,7 @@
     
 
   -  application.yml
-      ```
+      ```java
       
       spring:
         datasource:
@@ -148,7 +149,7 @@
 
   -  읽기와 쓰기/수정/분류에 따른 readOnly 표기
       
-      ```
+      ```java
 
        @Transactional(readOnly = true)
           public List<Article> getArticles(int page, int size) {
@@ -159,7 +160,7 @@
 
       ```
 
-      ```
+      ```java
     
         @Transactional
           public void saveArticle(String userId, String title, String content, MultipartFile file) {
@@ -179,7 +180,8 @@
 
   - 파일 업로드
     
-  ```
+  ```java
+
       @Service
         public class FileService {
         
@@ -205,7 +207,8 @@
   - 파일 다운로드
 
 
-  ```
+  ```java
+
           public Resource downloadFile(String filename) {
               try {
                   Path path = Paths.get(UPLOADED_FOLDER + filename).normalize();
@@ -224,7 +227,7 @@
 
   - 파일 삭제
 
-  ```
+  ```java
 
           public void deleteFile(String filePath) {
               try {
@@ -234,8 +237,8 @@
                   }
               } catch (Exception e) {
                   e.printStackTrace();
+                  }
               }
           }
-      }
 
 ```
