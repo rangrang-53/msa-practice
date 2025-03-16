@@ -36,7 +36,7 @@ public class BoardService {
 
         String path = null;
 
-        if(!file.isEmpty()) {
+        if(file != null && !file.isEmpty()) {
             path = fileService.fileUpload(file);
         }
 
